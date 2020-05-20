@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Movie Mania</title>
+	</head>
+	
+	<body>
+		<h1>Search for your Movie</h1>
+		<img th:src="@{/images/movie-mania.jpg}">
+		
+		<form method="POST" th:object="${design}">
+			<div class="grid">
+			<!-- <div th:if="${#fields.hasErrors()}">
+				Please correct the problems below and resubmit.
+			</div> -->
+				<div class="ingredient-group" id="genre">
+					<h3>Select your Genre</h3>
+					<div th:each="ingredient : ${genre}">
+						<input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+						<span th:text="${ingredient.name}">INGREDIENT</span><br/>
+					</div>
+				</div>
+				
+				<div class="ingredient-group" id="actor">
+					<h3>Select your Actor</h3>
+					<div th:each="ingredient : ${actor}">
+						<input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+						<span th:text="${ingredient.name}">INGREDIENT</span><br/>
+					</div>
+				</div>
+				
+				<div class="ingredient-group" id="language">
+					<h3>Select your Language</h3>
+					<div th:each="ingredient : ${language}">
+						<input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+						<span th:text="${ingredient.name}">INGREDIENT</span><br/>
+					</div>
+				</div>
+				
+				<div class="ingredient-group" id="year">
+					<h3>Select your Year</h3>
+					<div th:each="ingredient : ${year}">
+						<input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+						<span th:text="${ingredient.name}">INGREDIENT</span><br/>
+					</div>
+				</div>
+				
+				<div class="ingredient-group" id="industry">
+					<h3>Select your Industry</h3>
+					<div th:each="ingredient : ${industry}">
+						<input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+						<span th:text="${ingredient.name}">INGREDIENT</span><br/>
+					</div>
+				</div>
+			</div>
+			
+			<div>
+				<h3>Name your Movie</h3>
+				<input type="text" th:field="*{name}"><br/>
+				<button>Submit Your Movie</button>
+			</div>
+		</form>
+	</body>
+	
+</html>
